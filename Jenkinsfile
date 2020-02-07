@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				echo "creating an image..."
 				script {
-					app = docker.build("amit.fegade121/hello-world-rest-api:3.0");
+					app = docker.build("amitfegade121/hello-world-rest-api:3.0");
 				}
 			}			
 		}
