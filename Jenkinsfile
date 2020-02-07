@@ -20,19 +20,14 @@ pipeline {
 		stage("build an image") {
 			steps {
 				echo "creating an image..."
-				script {
-					app = docker.build("amitfegade121/hello-world-rest-api:3.0");
-				}
+				bat label: '', script: 'docker build -t amitfegade121/hello-world-rest-api:3.0 .'
 			}			
 		}
 		
 		stage("push docker image") {
 			steps {
-				script {
-					withDockerRegistry(credentialsId: 'docker-hub-cred', url: 'https://registry.hub.docker.com') {
-						app.push()
-					}
-				}
+				echo "pushing and image to docker hun"
+				bat label: '', script: 'docker push amitfegade121/hello-world-rest-api:3.0'
 			}
 		}
 		
