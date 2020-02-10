@@ -27,6 +27,7 @@ pipeline {
 			steps {
 				script {
 					withDockerRegistry(credentialsId: 'docker-hub-cred', url: 'https://registry.hub.docker.com') {
+						sh label: '', script: 'docker login'
 						app.push()
 						app.push("latest");
 					}
