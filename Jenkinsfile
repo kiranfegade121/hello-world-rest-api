@@ -14,26 +14,18 @@ pipeline {
 			}
 		}
 		
-		stage("build an image") {
+		stage("build and push an image") {
 			steps {
 				echo "creating an image..."
 				script {
-					app = docker.build("kiranfegade121/hello-world-rest-api:3.0");
+					withDockerRegistry(credentialsId: 'docker-hub-cred', url: 'https://registry.hub.docker.com') {
+						app = docker.build("kiranfegade121/hello-world-rest-api:3.0");
+						app.push()
+					}
+					
 				}
 			}			
-		}
-		
-		stage("push docker image") {
-			steps {
-				script {
-					withDockerRegistry(credentialsId: 'docker-hub-cred', url: 'https://registry.hub.docker.com') {
-						app.push()
-
-					}
-				}
-			}
-		}
-		
+		}	
 		
 	}
 }			
