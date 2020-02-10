@@ -2,16 +2,13 @@ pipeline {
 	
 	agent any 
 	
-	tools {
-		maven "MAVEN"
-	}
 	
 	stages {
 	
 		stage("build and archieve an artifact") {
 			steps {
 				echo "Building an artifact..."
-				bat label: '', script: 'mvn clean package'
+				sh label: '', script: 'mvn clean package'
 				echo "Archiving an artifact..."
 				archiveArtifacts '**/*.jar'
 			}
