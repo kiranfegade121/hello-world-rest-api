@@ -28,6 +28,7 @@ pipeline {
 				script {
 					withDockerRegistry(credentialsId: 'docker-hub-cred', url: 'https://registry.hub.docker.com') {
 						app.push()
+						app.push("latest");
 					}
 				}
 			}
