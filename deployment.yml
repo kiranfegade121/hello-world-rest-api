@@ -4,7 +4,6 @@ metadata:
   labels:
     app: hello-world-rest-api
   name: hello-world-rest-api
-  namespace: default  
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -22,7 +21,7 @@ spec:
         app: hello-world-rest-api
     spec:
       containers:
-      - image: kiranfegade121/hello-world-rest-api:1.0
+      - image: kiranfegade121/hello-world-rest-api:3.0
         imagePullPolicy: IfNotPresent
         name: hello-world-rest-api
       restartPolicy: Always
@@ -35,7 +34,6 @@ metadata:
   labels:
     app: hello-world-rest-api
   name: hello-world-rest-api
-  namespace: default
 spec:
   externalTrafficPolicy: Cluster
   ports:
