@@ -37,8 +37,6 @@ metadata:
   namespace: default
 spec:
   externalTrafficPolicy: Cluster
-  externalIPs:
-  - 35.225.201.11
   ports:
   - nodePort: 30920
     port: 8080
@@ -48,3 +46,4 @@ spec:
     app: hello-world-rest-api
   sessionAffinity: None
   type: LoadBalancer
+  loadBalancerIP: 35.225.201.11
