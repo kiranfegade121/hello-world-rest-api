@@ -27,21 +27,3 @@ spec:
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30      
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: hello-world-rest-api
-  name: hello-world-rest-api
-spec:
-  externalTrafficPolicy: Cluster
-  ports:
-  - nodePort: 30920
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
-  selector:
-    app: hello-world-rest-api
-  sessionAffinity: None
-  type: LoadBalancer
