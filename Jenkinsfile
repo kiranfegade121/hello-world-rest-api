@@ -22,7 +22,7 @@ pipeline {
 		
 		stage("Publish an image to Docker hub") {
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_CREDENTIALS', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+				withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
 					echo "Logging into Docker hub"
 					sh label: '', script: 'docker login -u $USERNAME -p $PASSWORD'
 					echo "Pushing an image to Docker hub"
