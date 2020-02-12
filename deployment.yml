@@ -46,4 +46,4 @@ spec:
     app: hello-world-rest-api
   sessionAffinity: None
   type: LoadBalancer
-  loadBalancerIP: 35.225.201.11 
+  
