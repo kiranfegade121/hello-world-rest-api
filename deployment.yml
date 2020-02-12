@@ -39,6 +39,7 @@ spec:
   ports:
   - nodePort: 30920
     port: 8080
+    protocol: tcp
     targetPort: 8080
   selector:
     app: hello-world-rest-api
