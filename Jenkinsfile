@@ -40,7 +40,7 @@ pipeline {
 				echo "Deploying an application to k8s cluster"
 				kubernetesDeploy(
 					kubeconfigId: "kubeconfig",
-					configs: "deployment.yml"
+					configs: "deployment.yml",
 					enableConfigSubstitution: true
 				)
 			}
