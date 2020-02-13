@@ -29,16 +29,7 @@ pipeline {
 					sh label: '', script: 'docker push kiranfegade121/hello-world-rest-api:3.0'
 				}	
 			}
-		}
+		}		
 		
-		stage("Deploy to production-kubernetes cluster") {
-			steps {
-			      kubernetesDeploy(
-					kubeconfigId: 'kubeconfig',
-					configs: 'deployment.yml',
-					enableConfigSubstitution: true
-				)
-			}
-		}
 	}
 }
