@@ -45,5 +45,5 @@ spec:
   selector:
     app: hello-world-rest-api
   sessionAffinity: None
-  type: LoadBalancer
+  type: NodePort
   
